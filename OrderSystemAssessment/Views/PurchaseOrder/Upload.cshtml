@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Upload Purchase Order";
+}
+
+<h2>Upload Purchase Order PDF</h2>
+
+<form asp-action="Upload" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="purchaseOrderFile">Upload PDF</label>
+        <input type="file" name="PurchaseOrderFile" id="purchaseOrderFile" accept="application/pdf" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-1">Submit</button>
+</form>
+
+@if (ViewBag.FilePath != null)
+{
+    <h3>Preview</h3>
+    <iframe id="pdfViewer" src="@ViewBag.FilePath" width="600" height="500"></iframe>
+}
